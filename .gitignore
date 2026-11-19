@@ -1,0 +1,11 @@
+/work/
+/inbox/*
+!/inbox/.gitkeep
+/dist/route-health-target.jar
+/backend/target/
+**/node_modules/
+**/.angular/
+/ui-angular/dist/
+.DS_Store
+*.log
+/route-health-workshop.zip

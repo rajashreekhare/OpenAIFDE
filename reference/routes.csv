@@ -1,0 +1,13 @@
+route_id,route_name,region,carrier
+CHI-E,Chicago East,Midwest,Prairie Transit
+CHI-W,Chicago West,Midwest,Lakefront Voice
+DFW-N,Dallas North,South,Mesa Relay
+DFW-S,Dallas South,South,Prairie Transit
+SEA-N,Seattle North,West,Rainline Voice
+SEA-S,Seattle South,West,Summit Relay
+PHX-E,Phoenix East,West,Mesa Relay
+PHX-W,Phoenix West,West,Summit Relay
+ATL-N,Atlanta North,South,Piedmont Voice
+ATL-S,Atlanta South,South,Grove Transit
+BOS-E,Boston East,Northeast,Harbor Relay
+BOS-W,Boston West,Northeast,Grove Transit

@@ -1,0 +1,42 @@
+{
+  "batch": "daily",
+  "rows": 50000,
+  "attempts": 49500,
+  "duplicates": 500,
+  "calls": 49200,
+  "retryCalls": 300,
+  "windowCount": 384,
+  "totals": {
+    "connected": 44619,
+    "busy": 3433,
+    "unavailable": 350,
+    "other": 1098
+  },
+  "incident": {
+    "routeId": "CHI-E",
+    "start": "2026-03-10T14:00:00Z",
+    "attempts": 400,
+    "connected": 339,
+    "busy": 29,
+    "unavailable": 24,
+    "other": 8
+  },
+  "previous": {
+    "routeId": "CHI-E",
+    "start": "2026-03-10T13:45:00Z",
+    "attempts": 400,
+    "connected": 369,
+    "busy": 21,
+    "unavailable": 2,
+    "other": 8
+  },
+  "busyContrast": {
+    "routeId": "CHI-W",
+    "start": "2026-03-10T14:00:00Z",
+    "attempts": 400,
+    "connected": 246,
+    "busy": 144,
+    "unavailable": 2,
+    "other": 8
+  }
+}

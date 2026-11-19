@@ -1,0 +1,42 @@
+{
+  "batch": "next-day",
+  "rows": 50000,
+  "attempts": 49500,
+  "duplicates": 500,
+  "calls": 49200,
+  "retryCalls": 300,
+  "windowCount": 384,
+  "totals": {
+    "connected": 44536,
+    "busy": 3462,
+    "unavailable": 366,
+    "other": 1136
+  },
+  "incident": {
+    "routeId": "DFW-S",
+    "start": "2026-03-11T16:30:00Z",
+    "attempts": 400,
+    "connected": 319,
+    "busy": 31,
+    "unavailable": 36,
+    "other": 14
+  },
+  "previous": {
+    "routeId": "DFW-S",
+    "start": "2026-03-11T16:15:00Z",
+    "attempts": 400,
+    "connected": 366,
+    "busy": 20,
+    "unavailable": 2,
+    "other": 12
+  },
+  "busyContrast": {
+    "routeId": "SEA-N",
+    "start": "2026-03-11T16:30:00Z",
+    "attempts": 400,
+    "connected": 243,
+    "busy": 144,
+    "unavailable": 2,
+    "other": 11
+  }
+}

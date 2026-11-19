@@ -1,0 +1,24 @@
+{
+  "batch": "walkthrough",
+  "rows": 12,
+  "attempts": 11,
+  "duplicates": 1,
+  "calls": 10,
+  "retryCalls": 1,
+  "windowCount": 5,
+  "totals": {
+    "connected": 6,
+    "busy": 2,
+    "unavailable": 2,
+    "other": 1
+  },
+  "example": {
+    "routeId": "CHI-E",
+    "start": "2026-03-10T14:00:00Z",
+    "attempts": 5,
+    "connected": 2,
+    "busy": 0,
+    "unavailable": 2,
+    "other": 1
+  }
+}
