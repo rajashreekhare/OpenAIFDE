@@ -4,6 +4,10 @@ Participants use OpenJDK 8 to run the starter JAR that serves the React app. The
 
 ## Two-hour exercise
 
+Distribute the starter zip through the agreed private channel. Before class, have each pair follow the README’s private Git setup from the extracted folder. Confirm their baseline commit is visible at the private remote and that they can push branches and open a pull request. The workshop uses Git-backed records, so a separate issue tracker is optional.
+
+If only the facilitator has an approved private remote, run the CodeMod workflow there as a guided demonstration while participants run the app and fixture checks from their zips. If nobody has a private remote, run the local baseline and Corretto exercise with Codex and defer the hands-on CodeMod transformation.
+
 | Budget | Participant activity | Evidence at the end |
 |---|---|---|
 | 0–15 minutes | Start the Java 8 JAR, inspect the walkthrough CSV, investigate the daily incident in React. | A route, time window, current and preceding 503 rates, and one raw attempt ID. |

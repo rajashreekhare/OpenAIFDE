@@ -23,6 +23,21 @@ Open **http://127.0.0.1:8080/**. The first start processes the daily sample when
 
 If `doctor` cannot find a JDK, set `JAVA8_HOME` and `JAVA25_HOME` in this shell to the actual JDK directories containing `bin/java` or `bin\java.exe`. On macOS these typically end in `Contents/Home`. In PowerShell use `$env:JAVA8_HOME = 'C:\path to your Java 8 JDK'` and the equivalent for `JAVA25_HOME`. The workshop selects each runtime explicitly. The prebuilt legacy JAR can start before warmup. Warmup needs access to npm and Maven, so run it before the session.
 
+### Private Git setup for CodeMod
+
+The zip is the starting point for everyone. You can run the app and its fixture checks directly from the extracted folder. For the full CodeMod migration, each pair also needs access to a private repository on the customer’s approved Git host. Arrange an empty repository for the pair before class, with permission to push branches and open a pull request.
+
+After running `init` above, confirm your Git commit identity with `git config user.name` and `git config user.email`. If either is missing, configure it in this checkout. Then run the following in macOS Terminal or Windows PowerShell, replacing the quoted placeholder with the pair’s private HTTPS or SSH clone URL.
+
+```sh
+git remote add origin "PRIVATE_REPOSITORY_URL"
+git push -u origin main
+git rev-parse HEAD
+git ls-remote --exit-code origin refs/heads/main
+```
+
+The last two commands should print the same commit ID. Open this checkout in Codex and choose Git-backed migration records. If private Git access is unavailable, use the zip for the local app and Corretto exercise. Resume the CodeMod screen migration once the private remote is available.
+
 ## Drop a file and inspect the mutation
 
 In a **second terminal**, run the commands below. On Windows replace `sh workshop.sh` with `.\workshop.cmd`.
