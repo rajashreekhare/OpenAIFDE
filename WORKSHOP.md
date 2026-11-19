@@ -1,21 +1,25 @@
 # Facilitating Route Health
 
-Participants use OpenJDK 8 to run the starter JAR that serves the React app. They deliver one JAR that processes a batch of call attempts on Amazon Corretto 25 and serves an Angular screen for investigating the results. Rehearse the timing on a representative participant laptop. Do the README toolchain and network warmup before the session.
+Participants use OpenJDK 8 to run the starter JAR that serves the React app. They use CodeMod to manage two checkpoints in one local Git migration record. The handoff is a JAR that processes a batch of call attempts on Amazon Corretto 25 and serves an Angular screen for investigating the results. Rehearse the timing on a representative participant laptop. Do the README toolchain and network warmup before the session.
 
 ## Two-hour exercise
 
 | Budget | Participant activity | Evidence at the end |
 |---|---|---|
 | 0–15 minutes | Start the Java 8 JAR, inspect the walkthrough CSV, investigate the daily incident in React. | A route, time window, current and preceding 503 rates, and one raw attempt ID. |
-| 15–40 minutes | In ordinary Codex, upgrade the Java build and processor to Corretto 25. Keep React as the UI for this checkpoint. | Target JDK identified, Java 25 bytecode packaged, fixture checks pass, same route visible in React. |
-| 40–100 minutes | Review the React screen with CodeMod, agree on the behaviors to preserve, then create the Angular frontend during the transformation. | Angular renders the same report, ranks routes, and lets the analyst inspect individual attempts. |
+| 15–40 minutes | Start in CodeMod and plan the Corretto 25 upgrade. Ask Codex to apply the Java changes. Run the checks and record the results in CodeMod. | Git commit, Java 25 bytecode, passing fixture checks and the same incident visible in React. |
+| 40–100 minutes | Resume the same CodeMod migration. Review the React behaviors, approve the Angular brief, then authorize transformation and verification. | Angular renders the same report, ranks routes, and lets the analyst inspect individual attempts. |
 | 100–120 minutes | Package the target JAR, run the second-day batch, and investigate the new incident through Angular. | Independent file checks pass and the group can explain the new route and time window. |
 
-### First checkpoint: runtime
+### Lab 1. Upgrade the runtime to Amazon Corretto 25
 
-Suggested prompt for ordinary Codex:
+Open the workshop folder in Codex, select `@codemod`, and start with both checkpoints in scope.
 
-> Upgrade the backend in this repository from OpenJDK 8 to Amazon Corretto 25. Preserve the processor’s inputs, outputs, duplicate handling, source checksum and UTC windows. Keep the React UI for this checkpoint. Build the target and verify the walkthrough and daily fixtures using the workshop launcher.
+> Manage the Route Health screen migration from React to Angular. Use local Git for the migration records. Our first checkpoint is to move the backend from OpenJDK 8 to Amazon Corretto 25 with the React screen still running. Inspect the Java build and processor, plan the runtime changes, and identify the file and browser checks we should run before starting the Angular work.
+
+Review the runtime plan. CodeMod supports assessment and planning for an in-place JDK upgrade. Give Codex the agreed plan to implement.
+
+> Apply the Corretto 25 changes from the plan. Preserve the file formats, source checksum, duplicate handling and UTC windows. Keep the React screen. Build the target with the workshop launcher and verify both the walkthrough and daily fixtures.
 
 Commands below use macOS spelling. In Windows PowerShell substitute `.\workshop.cmd` for `sh workshop.sh`.
 
@@ -28,15 +32,17 @@ sh workshop.sh verify target daily
 sh workshop.sh start target 8081
 ```
 
-The baseline uses the JAXB utility shipped with Java 8 to format the source checksum. That JDK API is absent in Corretto 25. Preserve the lowercase SHA-256 value for the same input bytes. The build launcher also checks the emitted class-file version. Commit the validated runtime checkpoint before starting the UI migration. [OpenJDK JEP 320](https://openjdk.org/jeps/320)
+The baseline uses the JAXB utility shipped with Java 8 to format the source checksum. That JDK API is absent in Corretto 25. Preserve the lowercase SHA-256 value for the same input bytes. The build launcher also checks the emitted class-file version. [OpenJDK JEP 320](https://openjdk.org/jeps/320)
 
-### Second checkpoint: React to Angular
+Open React on port 8081 and compare the daily incident with the baseline on port 8080. Commit the verified Java changes. Ask CodeMod to record the commit ID, the two fixture results and the React observation in the existing migration record.
 
-Suggested CodeMod intent:
+### Lab 2. Migrate the React screen to Angular
 
-> Migrate the investigation screen in ui-react to Angular. Create the target project in ui-angular during the transformation, using Angular CLI with an npm build script. Install its dependencies and commit the lockfile. Carry over the Blossom Com header, browser title, and bundled OpenAI Blossom icons. Keep the existing batch report formats and Java service interface. Preserve batch and UTC window selection, descending 503-rate ranking, previous-window rates, route drilldown, outcome filtering, pagination and refresh. Use the local repo to track the migration. Package the result with the Java 25 backend.
+Resume the same `@codemod` migration and use its recorded Java checkpoint.
 
-Use the plugin to initialize the migration, review the source behaviors and brief, run the transformation, and verify the result. Participants should exercise the UI themselves. The file verifier covers the processor’s output.
+> Continue from the verified Corretto 25 checkpoint. Migrate the investigation screen in ui-react to Angular. Create ui-angular during transformation, using Angular CLI with an npm build script. Install dependencies and commit the lockfile. Carry over the Blossom Com header, browser title and bundled OpenAI Blossom icons. Keep the report formats and Java service interface. Preserve batch and UTC window selection, descending 503-rate ranking, previous-window rates, route drilldown, outcome filtering, pagination and refresh. Package the screen with the Corretto 25 backend.
+
+Review the source behaviors against React and approve the Angular brief. Authorize CodeMod to transform the screen and independently verify the target. Participants then investigate a fresh batch in the browser. Record the target verification and the analyst’s finding alongside the Java checkpoint. The file verifier covers the processor’s output.
 
 Stop any target server from the first checkpoint, then run:
 

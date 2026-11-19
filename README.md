@@ -2,7 +2,7 @@
 
 Blossom Com received reports of failed outbound calls around 14:00 UTC. You are the communications provider’s shift analyst. Identify the route to investigate, compare it with the preceding 15 minutes, and inspect the call attempts behind your decision.
 
-The starter runs on OpenJDK 8 and serves the React screen from a single JAR. It includes the React source and three synthetic CSV batches. During the workshop, you upgrade the backend to Amazon Corretto 25 and migrate the screen to Angular. [Facilitator guide and migration exercise](WORKSHOP.md)
+The starter runs on OpenJDK 8 and serves the React screen from a single JAR. It includes the React source and three synthetic CSV batches. Use CodeMod to manage both changes in one local Git migration record. First, plan and verify the Amazon Corretto 25 upgrade with React still running. Then continue from that checkpoint to migrate the screen to Angular. [Lab prompts and facilitator guide](WORKSHOP.md)
 
 ## Before class
 
@@ -51,7 +51,7 @@ The source file stays in the inbox. Identical replays are safe. For changed cont
 | `ui-react/`, `dist/route-health-legacy.jar` | React source, built browser assets, runnable baseline |
 | `fixtures/`, `reference/`, `expected/` | Call records, route directory and expected results |
 | `tools/generate-fixtures.mjs`, `tools/verify.mjs` | Deterministic data generator and independent acceptance check |
-| `WORKSHOP.md` | Two-hour outline, suggested Codex prompts and acceptance criteria |
+| `WORKSHOP.md` | Two-hour outline, prompts for both CodeMod labs and acceptance criteria |
 
 The Maven wrapper is distributed under the [Apache License 2.0](notices/apache-wrapper-license.txt). Notices for the bundled React assets are in `ui-react/dist/third-party.txt`.
 
