@@ -8,7 +8,7 @@ Participants use OpenJDK 8 to run the starter JAR that serves the React app. The
 |---|---|---|
 | 0–15 minutes | Start the Java 8 JAR, inspect the walkthrough CSV, investigate the daily incident in React. | A route, time window, current and preceding 503 rates, and one raw attempt ID. |
 | 15–40 minutes | In ordinary Codex, upgrade the Java build and processor to Corretto 25. Keep React as the UI for this checkpoint. | Target JDK identified, Java 25 bytecode packaged, fixture checks pass, same route visible in React. |
-| 40–100 minutes | In CodeMod, bound the work to the React screen and the provided Angular workspace. Review existing behaviors, agree the brief, transform, and review the target. | Angular renders the same report, ranks and drills into live processed data. |
+| 40–100 minutes | Review the React screen with CodeMod, agree on the behaviors to preserve, then create the Angular frontend during the transformation. | Angular renders the same report, ranks routes, and lets the analyst inspect individual attempts. |
 | 100–120 minutes | Package the target JAR, run the second-day batch, and investigate the new incident through Angular. | Independent file checks pass and the group can explain the new route and time window. |
 
 ### First checkpoint: runtime
@@ -34,7 +34,7 @@ The baseline uses the JAXB utility shipped with Java 8 to format the source chec
 
 Suggested CodeMod intent:
 
-> Migrate the Route Health investigation screen from ui-react to ui-angular. Keep the existing batch report formats and Java service interface. Preserve batch and UTC window selection, descending 503-rate ranking, previous-window rates, route drilldown, outcome filtering, pagination and refresh. Use the local repo to track the migration. Package the result with the Java 25 backend.
+> Migrate the investigation screen in ui-react to Angular. Create the target project in ui-angular during the transformation, using Angular CLI with an npm build script. Install its dependencies and commit the lockfile. Keep the existing batch report formats and Java service interface. Preserve batch and UTC window selection, descending 503-rate ranking, previous-window rates, route drilldown, outcome filtering, pagination and refresh. Use the local repo to track the migration. Package the result with the Java 25 backend.
 
 Use the plugin to initialize the migration, review the source behaviors and brief, run the transformation, and verify the result. Participants should exercise the UI themselves. The file verifier covers the processor’s output.
 

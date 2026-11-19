@@ -2,7 +2,7 @@
 
 A communications provider received reports of failed outbound calls around 14:00 UTC. You are the shift analyst. Identify the route to investigate, compare it with the preceding 15 minutes, and inspect the call attempts behind your decision.
 
-This starter ships a runnable Java 8 JAR with a React front end, three synthetic CSV batches, and an empty Angular workspace. Your migration target is one Amazon Corretto 25 JAR serving the Angular investigation screen. Everything in the exercise runs on the participant’s machine. [Facilitator guide and migration exercise](WORKSHOP.md)
+The starter runs on OpenJDK 8 and serves the React screen from a single JAR. It includes the React source and three synthetic CSV batches. During the workshop, you upgrade the backend to Amazon Corretto 25 and migrate the screen to Angular. [Facilitator guide and migration exercise](WORKSHOP.md)
 
 ## Before class
 
@@ -10,13 +10,13 @@ Unzip the workshop into a writable folder and open a terminal there. Install Git
 
 - **Starting app:** Use OpenJDK 8. Set `JAVA8_HOME` to its JDK directory.
 - **Migration target:** Use Amazon Corretto 25. Set `JAVA25_HOME` to select it explicitly. [Corretto 25 JDK downloads](https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html)
-- [Node downloads](https://nodejs.org/en/download) and [Angular version compatibility](https://angular.dev/reference/versions)
+- [Node downloads](https://nodejs.org/en/download)
 
 | From the unpacked folder | macOS Terminal | Windows PowerShell |
 |---|---|---|
 | Check the toolchain | `sh workshop.sh doctor` | `.\workshop.cmd doctor` |
 | Establish the local Git baseline | `sh workshop.sh init` | `.\workshop.cmd init` |
-| Install locked build dependencies before class | `sh workshop.sh warmup` | `.\workshop.cmd warmup` |
+| Install React dependencies and build the starter | `sh workshop.sh warmup` | `.\workshop.cmd warmup` |
 | Start Java 8 and React | `sh workshop.sh start legacy` | `.\workshop.cmd start legacy` |
 
 Open **http://127.0.0.1:8080/**. The first start processes the daily sample when no reports exist. Select **March 10, 14:00 UTC**, compare each route’s 503 rate with its prior rate, and open a route to inspect individual attempts. Filter by **503** and then by **486**. Keep the server terminal open. Use Ctrl+C to stop it. You can pass a different port, for example `start legacy 8081`.
@@ -49,7 +49,6 @@ The source file stays in the inbox. Identical replays are safe. For changed cont
 |---|---|
 | `backend/` | Java 8 processor, loopback web server, Maven project and wrappers |
 | `ui-react/`, `dist/route-health-legacy.jar` | React source, built browser assets, runnable baseline |
-| `ui-angular/` | Buildable Angular shell for the migration |
 | `fixtures/`, `reference/`, `expected/` | Call records, route directory and expected results |
 | `tools/generate-fixtures.mjs`, `tools/verify.mjs` | Deterministic data generator and independent acceptance check |
 | `WORKSHOP.md` | Two-hour outline, suggested Codex prompts and acceptance criteria |

@@ -12,7 +12,7 @@ const stages = { legacy: 8, target: 25 };
 const help = `Route Health workshop
   doctor                          Check runtimes, Git and Node
   init                            Create a local Git baseline after unpacking
-  warmup                          Install locked UI dependencies and warm the Maven build
+  warmup                          Install React dependencies and build the Java 8 starter
   sample <walkthrough|daily|next-day>   Copy a sample into inbox/
   process <legacy|target> [batch]  Process the inbox, or one named drop or fixture
   start <legacy|target> [port]     Serve the app; seed daily if there are no reports
@@ -156,9 +156,15 @@ function processDrops(stage, name, jdk) {
 function build(stage, ui, jdk) {
   if (!['react', 'angular'].includes(ui)) throw new Error('Choose react or angular for the web assets.');
   const frontend = join('ui-' + ui);
-  wrapper('npm', ['run', 'build'], { cwd: frontend });
-  if (!fs.existsSync(path.join(frontend, 'dist', 'index.html'))) throw new Error('Frontend build is missing dist/index.html.');
-  wrapper('mvnw', ['-B', 'clean', 'package', '-Dweb.assets=../ui-' + ui + '/dist'], { cwd: join('backend'), env: jdkEnv(jdk) });
+  const angular = ui === 'angular';
+  if (angular && !fs.existsSync(path.join(frontend, 'package.json'))) {
+    throw new Error('Create ui-angular during the frontend migration. Use "build target react" for the Java 25 checkpoint.');
+  }
+  const buildArgs = angular ? ['run', 'build', '--', '--output-path=dist'] : ['run', 'build'];
+  wrapper('npm', buildArgs, { cwd: frontend });
+  const output = angular && fs.existsSync(path.join(frontend, 'dist/browser/index.html')) ? 'dist/browser' : 'dist';
+  if (!fs.existsSync(path.join(frontend, output, 'index.html'))) throw new Error('Frontend build is missing ' + output + '/index.html.');
+  wrapper('mvnw', ['-B', 'clean', 'package', '-Dweb.assets=../ui-' + ui + '/' + output], { cwd: join('backend'), env: jdkEnv(jdk) });
   const classHeader = fs.readFileSync(join('backend', 'target', 'classes', 'workshop', 'Processor.class'));
   const release = classHeader.readUInt16BE(6) - 44;
   if (release !== stages[stage]) {
@@ -176,8 +182,7 @@ function main([command, stage, arg, ...extra]) {
   if (command === 'init') return baseline();
   if (command === 'sample') return sample(stage);
   if (command === 'warmup') {
-    for (const name of ['react', 'angular']) wrapper('npm', ['ci', '--no-audit', '--no-fund'], { cwd: join('ui-' + name) });
-    wrapper('npm', ['run', 'build'], { cwd: join('ui-angular') });
+    wrapper('npm', ['ci', '--no-audit', '--no-fund'], { cwd: join('ui-react') });
     return build('legacy', 'react', findJdk(8));
   }
   if (!Object.hasOwn(stages, stage)) throw new Error(help);
@@ -193,7 +198,10 @@ function main([command, stage, arg, ...extra]) {
   const jdk = findJdk(stages[stage]);
   console.log(`${stage}: ${jdk.description} | ${jdk.home}`);
   if (command === 'process') return processDrops(stage, arg, jdk);
-  if (command === 'build') return build(stage, arg || (stage === 'legacy' ? 'react' : 'angular'), jdk);
+  if (command === 'build') {
+    const hasAngularTarget = stage === 'target' && fs.existsSync(join('ui-angular', 'package.json'));
+    return build(stage, arg || (hasAngularTarget ? 'angular' : 'react'), jdk);
+  }
   if (command === 'start') {
     const port = Number(arg || 8080);
     if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Choose a port between 1 and 65535.');
