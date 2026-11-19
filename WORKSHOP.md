@@ -34,7 +34,7 @@ The baseline uses the JAXB utility shipped with Java 8 to format the source chec
 
 Suggested CodeMod intent:
 
-> Migrate the investigation screen in ui-react to Angular. Create the target project in ui-angular during the transformation, using Angular CLI with an npm build script. Install its dependencies and commit the lockfile. Keep the existing batch report formats and Java service interface. Preserve batch and UTC window selection, descending 503-rate ranking, previous-window rates, route drilldown, outcome filtering, pagination and refresh. Use the local repo to track the migration. Package the result with the Java 25 backend.
+> Migrate the investigation screen in ui-react to Angular. Create the target project in ui-angular during the transformation, using Angular CLI with an npm build script. Install its dependencies and commit the lockfile. Carry over the Blossom Com header, browser title, and bundled OpenAI Blossom icons. Keep the existing batch report formats and Java service interface. Preserve batch and UTC window selection, descending 503-rate ranking, previous-window rates, route drilldown, outcome filtering, pagination and refresh. Use the local repo to track the migration. Package the result with the Java 25 backend.
 
 Use the plugin to initialize the migration, review the source behaviors and brief, run the transformation, and verify the result. Participants should exercise the UI themselves. The file verifier covers the processor’s output.
 

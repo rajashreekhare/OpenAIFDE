@@ -138,7 +138,7 @@ function App() {
   const prior = previousRates(windows, start);
   return <>
     <header className="mast"><div className="width topbar">
-      <div className="brand"><span className="mark" aria-hidden="true"><i/><i/><i/></span>Switchyard</div>
+      <div className="brand"><img src="/assets/openai-blossom-white.svg" width="52" height="52" alt="" />Blossom Com</div>
       <span className="network">Voice operations</span>
     </div><div className="width hero"><div><h1>Route Health</h1>
       <p>Voice route performance by 15-minute UTC window.</p></div>

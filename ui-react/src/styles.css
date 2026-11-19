@@ -22,11 +22,7 @@ button:disabled { cursor: default; opacity: .45; }
 .mast { color: #f5fbf8; background: var(--navy); border-top: 4px solid #58b79d; }
 .topbar { height: 61px; display: flex; align-items: center; justify-content: space-between; position: relative; }
 .topbar::after { content: ''; position: absolute; bottom: 0; inset-inline: clamp(16px, 4.5vw, 66px); border-bottom: 1px solid #36505b; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 680; letter-spacing: -.6px; }
-.mark { width: 24px; height: 22px; display: inline-flex; gap: 3px; align-items: center; transform: skew(-17deg); }
-.mark i { width: 5px; height: 12px; background: #82d5b8; }
-.mark i:nth-child(2) { height: 20px; }
-.mark i:nth-child(3) { height: 15px; }
+.brand { display: inline-flex; align-items: center; margin-inline-start: -13px; font-size: 19px; font-weight: 680; letter-spacing: -.6px; }
 .network { color: #c1d4d3; font-size: 13px; }
 .hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding-block: 30px 35px; }
 h1, h2, p { margin: 0; }

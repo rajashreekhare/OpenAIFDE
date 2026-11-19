@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 
 await mkdir('dist', { recursive: true });
 await build({
@@ -12,6 +12,7 @@ await build({
   target: ['es2020'],
 });
 await copyFile('src/index.html', 'dist/index.html');
+await cp('src/assets', 'dist/assets', { recursive: true });
 
 const notices = [];
 for (const name of ['react', 'react-dom', 'scheduler']) {

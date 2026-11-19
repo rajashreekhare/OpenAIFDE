@@ -1,6 +1,6 @@
 # Route Health workshop
 
-A communications provider received reports of failed outbound calls around 14:00 UTC. You are the shift analyst. Identify the route to investigate, compare it with the preceding 15 minutes, and inspect the call attempts behind your decision.
+Blossom Com received reports of failed outbound calls around 14:00 UTC. You are the communications provider’s shift analyst. Identify the route to investigate, compare it with the preceding 15 minutes, and inspect the call attempts behind your decision.
 
 The starter runs on OpenJDK 8 and serves the React screen from a single JAR. It includes the React source and three synthetic CSV batches. During the workshop, you upgrade the backend to Amazon Corretto 25 and migrate the screen to Angular. [Facilitator guide and migration exercise](WORKSHOP.md)
 
@@ -54,3 +54,5 @@ The source file stays in the inbox. Identical replays are safe. For changed cont
 | `WORKSHOP.md` | Two-hour outline, suggested Codex prompts and acceptance criteria |
 
 The Maven wrapper is distributed under the [Apache License 2.0](notices/apache-wrapper-license.txt). Notices for the bundled React assets are in `ui-react/dist/third-party.txt`.
+
+The OpenAI Blossom is a trademark of OpenAI. The workshop bundles the official icon assets for local use. [OpenAI brand assets](https://openai.com/brand/)
