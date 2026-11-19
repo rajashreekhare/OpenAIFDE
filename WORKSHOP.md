@@ -1,6 +1,6 @@
 # Facilitating Route Health
 
-Participants deliver one JAR that processes a batch of call attempts on Corretto 25 and serves an Angular screen for investigating the results. Rehearse the timing on a representative participant laptop. Do the README toolchain and network warmup before the session.
+Participants start the Java 8 and React app with a standard Java 8 JDK. They deliver one JAR that processes a batch of call attempts on Amazon Corretto 25 and serves an Angular screen for investigating the results. Rehearse the timing on a representative participant laptop. Do the README toolchain and network warmup before the session.
 
 ## Two-hour exercise
 

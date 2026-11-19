@@ -6,10 +6,10 @@ This starter ships a runnable Java 8 JAR with a React front end, three synthetic
 
 ## Before class
 
-Unzip the workshop into a writable folder and open a terminal there. Install Git, Node 24 with npm (the pinned version is in `.nvmrc`), a Java 8 JDK, and an Amazon Corretto 25 JDK. Choose the packages for your CPU. Both JDKs are available for Apple silicon, Intel Macs, and x64 Windows. Use the AWS build list to check other architectures. Open the folder in Codex and confirm that you can select the CodeMod plugin.
+Unzip the workshop into a writable folder and open a terminal there. Install Git and Node 24 with npm (the pinned version is in `.nvmrc`). Install the two JDKs side by side and choose builds for your CPU. Open the folder in Codex and confirm that you can select the CodeMod plugin.
 
-- [Corretto 8 JDK downloads](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
-- [Corretto 25 JDK downloads](https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html)
+- **Starting app:** Use your existing standard Java 8 JDK with `javac`, or install an OpenJDK 8 build such as Azul Zulu. Set `JAVA8_HOME` to select it explicitly. [OpenJDK 8 downloads for Mac and Windows](https://www.azul.com/downloads/?version=java-8-lts&package=jdk)
+- **Migration target:** Use Amazon Corretto 25. Set `JAVA25_HOME` to select it explicitly. [Corretto 25 JDK downloads](https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html)
 - [Node downloads](https://nodejs.org/en/download) and [Angular version compatibility](https://angular.dev/reference/versions)
 
 | From the unpacked folder | macOS Terminal | Windows PowerShell |

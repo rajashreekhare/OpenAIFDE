@@ -37,16 +37,18 @@ function wrapper(name, args, options) {
 function findJdk(version) {
   const key = 'JAVA' + version + '_HOME';
   const preferred = process.env[key];
-  const paths = [];
+  const paths = [process.env.JAVA_HOME];
   if (process.platform === 'darwin') {
     const mac = spawnSync('/usr/libexec/java_home', ['-v', version === 8 ? '1.8' : String(version)], { encoding: 'utf8' });
     if (mac.status === 0) paths.push(mac.stdout.trim());
   }
   if (windows) {
-    const base = path.join(process.env.ProgramFiles || 'C:\\Program Files', 'Amazon Corretto');
-    if (fs.existsSync(base)) paths.push(...fs.readdirSync(base).sort().reverse().map(n => path.join(base, n)));
+    const installers = version === 8 ? ['Java', 'Eclipse Adoptium', 'Zulu'] : ['Amazon Corretto'];
+    for (const installer of installers) {
+      const base = path.join(process.env.ProgramFiles || 'C:\\Program Files', installer);
+      if (fs.existsSync(base)) paths.push(...fs.readdirSync(base).sort().reverse().map(n => path.join(base, n)));
+    }
   }
-  paths.push(process.env.JAVA_HOME);
   const candidates = preferred ? [path.join(preferred, 'bin', bin('java'))] :
     [...paths.filter(Boolean).map(home => path.join(home, 'bin', bin('java'))), bin('java')];
   for (const exe of new Set(candidates)) {
@@ -58,7 +60,9 @@ function findJdk(version) {
     if (!home || spec !== (version === 8 ? '1.8' : '25') || (version === 25 && !/Corretto/i.test(info))) continue;
     if (path.basename(home).toLowerCase() === 'jre') home = path.dirname(home);
     if (!fs.existsSync(path.join(home, 'bin', bin('javac')))) continue;
-    return { exe: path.join(home, 'bin', bin('java')), home, description: info.split(/\r?\n/).find(s => /^(openjdk|java) version/.test(s)) };
+    const versionLine = info.split(/\r?\n/).find(s => /^(openjdk|java) version/.test(s));
+    const vendor = info.match(/^\s*java\.vendor\s*=\s*(.+)$/m)?.[1].trim();
+    return { exe: path.join(home, 'bin', bin('java')), home, description: [versionLine, vendor].filter(Boolean).join(' | ') };
   }
   throw new Error(`Set ${key} to the ${version === 25 ? 'Amazon Corretto 25' : 'Java 8'} JDK directory.`);
 }
