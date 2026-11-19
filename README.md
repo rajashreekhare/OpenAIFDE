@@ -8,7 +8,7 @@ This starter ships a runnable Java 8 JAR with a React front end, three synthetic
 
 Unzip the workshop into a writable folder and open a terminal there. Install Git and Node 24 with npm (the pinned version is in `.nvmrc`). Install the two JDKs side by side and choose builds for your CPU. Open the folder in Codex and confirm that you can select the CodeMod plugin.
 
-- **Starting app:** Use your existing standard Java 8 JDK with `javac`, or install an OpenJDK 8 build such as Azul Zulu. Set `JAVA8_HOME` to select it explicitly. [OpenJDK 8 downloads for Mac and Windows](https://www.azul.com/downloads/?version=java-8-lts&package=jdk)
+- **Starting app:** Use OpenJDK 8. Set `JAVA8_HOME` to its JDK directory.
 - **Migration target:** Use Amazon Corretto 25. Set `JAVA25_HOME` to select it explicitly. [Corretto 25 JDK downloads](https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html)
 - [Node downloads](https://nodejs.org/en/download) and [Angular version compatibility](https://angular.dev/reference/versions)
 

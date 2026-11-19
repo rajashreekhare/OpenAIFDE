@@ -1,6 +1,6 @@
 # Facilitating Route Health
 
-Participants start the Java 8 and React app with a standard Java 8 JDK. They deliver one JAR that processes a batch of call attempts on Amazon Corretto 25 and serves an Angular screen for investigating the results. Rehearse the timing on a representative participant laptop. Do the README toolchain and network warmup before the session.
+Participants use OpenJDK 8 to run the starter JAR that serves the React app. They deliver one JAR that processes a batch of call attempts on Amazon Corretto 25 and serves an Angular screen for investigating the results. Rehearse the timing on a representative participant laptop. Do the README toolchain and network warmup before the session.
 
 ## Two-hour exercise
 
@@ -15,7 +15,7 @@ Participants start the Java 8 and React app with a standard Java 8 JDK. They del
 
 Suggested prompt for ordinary Codex:
 
-> Upgrade the backend in this repository from Java 8 to Amazon Corretto 25. Preserve the processor’s inputs, outputs, duplicate handling, source checksum and UTC windows. Keep the React UI for this checkpoint. Build the target and verify the walkthrough and daily fixtures using the workshop launcher.
+> Upgrade the backend in this repository from OpenJDK 8 to Amazon Corretto 25. Preserve the processor’s inputs, outputs, duplicate handling, source checksum and UTC windows. Keep the React UI for this checkpoint. Build the target and verify the walkthrough and daily fixtures using the workshop launcher.
 
 Commands below use macOS spelling. In Windows PowerShell substitute `.\workshop.cmd` for `sh workshop.sh`.
 
